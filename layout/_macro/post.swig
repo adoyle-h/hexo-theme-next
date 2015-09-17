@@ -57,6 +57,19 @@
             </time>
           </span>
 
+          {% if (post.updated) %}
+          <span class="update-time">
+            &nbsp; | &nbsp;
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">{{ __('post.updated') }}</span>
+            <time itemprop="dateUpdated" datetime="{{ moment(post.updated).format() }}" content="{{ date(post.updated, config.date_format) }}">
+              {{ date(post.updated, config.date_format) }}
+            </time>
+          </span>
+          {% endif %}
+
           {% if post.categories and post.categories.length %}
             <span class="post-category" >
               &nbsp; | &nbsp;
@@ -121,6 +134,15 @@
               <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>{{ theme.busuanzi_count.page_pv_footer }}
               </span>
           {% endif %}
+
+          {% if post.tags and post.tags.length %}
+            <div class="post-tags">
+              <span class="post-tags-item-text">{{ __('page.tags') }}</span>
+              {% for tag in post.tags %}
+                <a href="{{ url_for(tag.path) }}" rel="tag">#{{ tag.name }}</a>
+              {% endfor %}
+            </div>
+          {% endif %}
         </div>
       </header>
     {% endif %}
@@ -180,6 +202,11 @@
           {% endif %}
         {% endif %}
       {% else %}
+        {% if page.copyright %}
+          <div class="post-pre-text">
+            {{ __('post.copyright') }}
+          </div>
+        {% endif %}
         {{ post.content }}
       {% endif  %}
     </div>
@@ -197,14 +224,6 @@
     </div>
 
     <footer class="post-footer">
-      {% if post.tags and post.tags.length and not is_index %}
-        <div class="post-tags">
-          {% for tag in post.tags %}
-            <a href="{{ url_for(tag.path) }}" rel="tag">#{{ tag.name }}</a>
-          {% endfor %}
-        </div>
-      {% endif %}
-
       {% if not is_index and (post.prev or post.next) and not navlessPost %}
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
