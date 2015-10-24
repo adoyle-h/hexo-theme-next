@@ -25,6 +25,7 @@
     "screenshots"
   ],
   "dependencies": {
+    "github-fork-ribbon-css": "~0.1.1",
     "fancybox": "~2.1.5",
     "velocity": "~1.2.1",
     "jquery": "http://code.jquery.com/jquery-2.1.3.min.js",

@@ -1,5 +1,38 @@
 // Custom styles.
 
+.github-fork-ribbon-wrapper.autofix {
+    left: 0;
+
+    .github-fork-ribbon {
+        top: 42px;
+        left: -43px;
+
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+}
+
+@media (max-width: 767px) {
+  .github-fork-ribbon-wrapper.autofix {
+    left: auto;
+    right: 0;
+
+    .github-fork-ribbon {
+        left: auto;
+        right: -43px;
+
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+  }
+}
+
 .post-tags-item-text {
     color: #999;
     font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;

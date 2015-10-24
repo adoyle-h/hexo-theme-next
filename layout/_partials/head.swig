@@ -23,6 +23,11 @@
 {% endif %}
 
 
+<link rel="stylesheet" type="text/css" href="{{ url_for(theme.vendors._internal) }}/github-fork-ribbon-css/gh-fork-ribbon.css"/>
+<!--[if lt IE 9]>
+  <link rel="stylesheet" type="text/css" href="{{ url_for(theme.vendors._internal) }}/github-fork-ribbon-css/gh-fork-ribbon.ie.css"/>
+<![endif]-->
+
 {% if theme.fancybox %}
   {% set fancybox_css_uri = url_for(theme.vendors._internal + '/fancybox/source/jquery.fancybox.css?v=2.1.5') %}
   {% if theme.vendors.fancybox_css %}
