@@ -57,7 +57,7 @@
             </time>
           </span>
 
-          {% if (post.updated) %}
+          {% if (post.updated && post.updated > post.date) %}
           <span class="update-time">
             &nbsp; | &nbsp;
             <span class="post-meta-item-icon">
