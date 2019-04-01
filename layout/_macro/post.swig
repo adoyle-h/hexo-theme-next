@@ -204,7 +204,7 @@
       {% else %}
         {% if page.copyright %}
           <div class="post-pre-text">
-            {{ __('post.copyright') }}
+            {{ page.copyright }}
           </div>
         {% endif %}
         {{ post.content }}
