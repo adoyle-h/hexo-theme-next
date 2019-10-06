@@ -64,9 +64,13 @@
 
 
 {% if theme.favicon %}
-  <link rel="shortcut icon" type="image/x-icon" href="{{ url_for(theme.favicon) }}?v={{ theme.version }}" />
+  <link rel="icon" type="image/x-icon" href="{{ url_for(theme.favicon.small) }}?v={{ theme.version }}" sizes="32x32" />
+  <link rel="icon" type="image/x-icon" href="{{ url_for(theme.favicon.medium) }}?v={{ theme.version }}" sizes="64x64" />
+  <link rel="icon" type="image/x-icon" href="{{ url_for(theme.favicon.medium2) }}?v={{ theme.version }}" sizes="128x128" />
+  <link rel="icon" type="image/x-icon" href="{{ url_for(theme.favicon.large) }}?v={{ theme.version }}" sizes="256x256" />
 {% endif %}
 
+<meta name="theme-color" content="#ffffff">
 
 {% if theme.facebook_sdk.enable and theme.facebook_sdk.webmaster %}
   <meta property="fb:admins" content="{{ theme.facebook_sdk.fb_admin }}" />
